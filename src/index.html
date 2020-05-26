@@ -39,17 +39,39 @@
       </div>
     
   </nav>
-  <section class="header">
+  <header class="header">
     <div class="header__content">
       <span class="api">API</span>
       <h1>NASA</h1>
       <span class="examples">EXAMPLES</span>
     </div>
+    <div class="header__red-background"></div>
+    <div class="header__red-background header__red-background--second"></div>
+
+  </header>
+  <section class="apod">
+    <div id="apod__image" class="apod__image"></div>
+    <div class="apod__content">
+      <h2>Astronomy Picture of the Day</h2>
+      <p>Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</p>
+      <input class="apod__date-input" id="input"  type="date">
+      <div class="back">
+        <div id="button" class="apod__button button_base b10_tveffect">
+            <div>CHOOSE PICTURE</div>
+            <div>
+                <div>Nasa</div>
+                <div>Secret</div>
+                <div>Picture</div>
+            </div>
+        </div>
+    </div>
+    </div>
   </section>
   <div><img id="img" src="" alt=""></div>
+
   <div id="data"></div>
-  <input id="input"  type="date">
-  <button id="button">klikaj</button>
+ 
+  
   <section id="section"></section>
 </body>
 </html>

@@ -3,7 +3,7 @@ console.log("webpack starterkit");
 import apod from "./apod";
 import smoothScroll from "./smooth";
 const myApp = (function () {
-  let date = "2020-05-05";
+  let initialPictureDate = "2020-04-25";
   const navigation = document.querySelector(".navigation");
   const navigationItemFirst = document.querySelector(
     ".navigation-burger__item--first"
@@ -38,16 +38,13 @@ const myApp = (function () {
       navigationItemSecond.classList.toggle("display-none");
       navigationItemFirst.classList.toggle("translateAdd");
       navigationItemThird.classList.toggle("translateMinus");
-      navigationItems.forEach((item) => {
-        item.classList.toggle("dark-background");
-      });
     });
   });
   const getDate = () => {
     const input = document.getElementById("input");
     input.addEventListener("change", (e) => {
-      date = e.target.value;
-      console.log(date);
+      initialPictureDate = e.target.value;
+      console.log(initialPictureDate);
     });
   };
   const apodButton = () => {
@@ -62,7 +59,7 @@ const myApp = (function () {
       "https://api.nasa.gov/EPIC/api/natural/date/2019-05-30?api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT"
     );
     const ApodApi = fetch(
-      `https://api.nasa.gov/planetary/apod?date=${date}&api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT`
+      `https://api.nasa.gov/planetary/apod?date=${initialPictureDate}&api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT`
     );
     try {
       Promise.all([EpicApi, ApodApi]).then((files) => {

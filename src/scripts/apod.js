@@ -1,7 +1,7 @@
 const apod = (prom)=>{
   prom.then(data =>{
-      let img = document.getElementById('img')
-      img.src = data.url
+      let apoPictureDiv = document.getElementById('apod__image')
+      apoPictureDiv.style.backgroundImage=`url(${data.url})`
   })
 
 }
