@@ -1,9 +1,8 @@
 const apod = (prom)=>{
   prom.then(data =>{
-    console.log(data)
-    let paragraph = document.createElement('img')
-    paragraph.src = data.url;
-    document.getElementById('data').appendChild(paragraph)
+      let img = document.getElementById('img')
+      img.src = data.url
   })
+
 }
 export default apod;
