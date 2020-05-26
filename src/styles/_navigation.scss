@@ -1,0 +1,217 @@
+@import './media';
+@import './variables';
+.navigation{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    
+    z-index: -100;
+    width: 100%;
+    opacity:0;
+    transition: 1s all ease;
+    overflow: hidden;
+        @include desktop{
+            height: 7vh;
+            transform: translateY(0%);
+            position: initial;
+            opacity: 1;
+            align-items: flex-end;
+            background: white;
+            position: fixed;
+            z-index: 10001;
+        }
+   
+}
+.fade{
+    opacity: 1 !important;
+    z-index: 999;
+}
+.navigation__container{
+    height: 70%;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    @include phone-landscape{
+        height: 50%;
+    }
+        @include desktop{
+            flex-direction: column;
+            align-items: flex-end;
+            width: 100%;
+            justify-content: flex-start;
+            height: 100%;
+           
+        }
+
+}
+.navigation__top-elements{
+    display: none;
+   
+    @include desktop{
+        
+        display: flex;
+        justify-content: space-between;
+        height: 50%;
+        width: 100%;
+        align-items: center;
+        position: relative;
+     
+       
+    }
+
+}
+a[href^="tel:"] {
+   
+    font-style: initial;
+}
+
+
+.navigation-media__item{
+    height: 100%;
+    
+}
+.navigation-list__container{
+    width: 100%;
+    @include desktop{
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        
+    }
+}
+.navigation__list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 70%;
+    margin-right: 3rem;
+    a{
+       
+        cursor: pointer;
+    }
+    @include phone-landscape{
+        height: 90%;
+    }
+        @include desktop{
+            flex-direction: row;
+            width: 40%;
+            justify-content: space-between;
+            align-items: center;
+            height: 40%;
+            margin-left: 2rem;
+            font-weight: 500;
+           
+        }
+    li{
+        padding-top: 3rem;
+        font-size: 2rem;
+        color: $font-color;
+        font-weight: 900;
+        text-align: right;
+        &:hover{
+            
+        }
+        @include phone-landscape{
+            font-size: 1.3rem;
+        }
+        @include desktop{
+            padding-top: 0;
+            text-align: right;
+            font-size: 1.2rem;
+            
+      
+        }
+    }
+}
+
+
+
+.home-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include desktop{
+        height: 100%;
+        justify-content: flex-start;
+    }
+}
+.navigation-burger{
+    position: fixed;
+    width:3rem;
+    height: 2rem;
+    z-index: 1999;
+    top: 10%;
+    right: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+        @include desktop{
+            display: none;
+        }
+    &__item{
+        background: black;
+        width: 100%;
+        height: .2rem; 
+    }
+}
+.display-none{
+    display: none;
+}
+.translateAdd{
+    position: absolute;
+    
+    animation: show 1s;
+}
+.translateMinus{
+    position: absolute;
+    bottom: -10%;
+    
+  
+   
+    
+}
+
+.dark-background{
+    background: white;
+}
+.dark-item{
+    background: white !important;
+}
+
+
+
+@keyframes show{
+    0%{
+        transform: rotate(0deg);
+        opacity:0;
+       
+    }
+    50%{
+        transform: rotate(45deg);
+        opacity: 0.5;
+        
+    }
+    100%{
+        transform: rotete(45deg);
+        opacity: 1;
+        
+    }
+
+}
+.navigation__info{
+    width: 60%;
+    align-self: flex-end;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+
+}
