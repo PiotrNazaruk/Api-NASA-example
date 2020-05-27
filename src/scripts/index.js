@@ -4,19 +4,18 @@ import apod from "./apod";
 import smoothScroll from "./smooth";
 import insight from './insight';
 import marsPhoto from './marsPhoto';
+import earth from './earth';
 
 const myApp = (function () {
   let initialPictureDate = "2020-04-25";
+  let initialLatitude = 37.234894;
+  let initialLongitude = -115.81082;
+
+
   const navigation = document.querySelector(".navigation");
-  const navigationItemFirst = document.querySelector(
-    ".navigation-burger__item--first"
-  );
-  const navigationItemSecond = document.querySelector(
-    ".navigation-burger__item--second"
-  );
-  const navigationItemThird = document.querySelector(
-    ".navigation-burger__item--third"
-  );
+  const navigationItemFirst = document.querySelector(".navigation-burger__item--first");
+  const navigationItemSecond = document.querySelector(".navigation-burger__item--second");
+  const navigationItemThird = document.querySelector(".navigation-burger__item--third");
   const navigationItems = document.querySelectorAll(".navigation-burger__item");
   const navigationLinks = document.querySelectorAll(".navigation__link");
 
@@ -26,9 +25,6 @@ const myApp = (function () {
     navigationItemSecond.classList.toggle("display-none");
     navigationItemFirst.classList.toggle("translateAdd");
     navigationItemThird.classList.toggle("translateMinus");
-    // navigationItems.forEach((item) => {
-    //   item.classList.toggle("dark-background");
-    // });
   };
 
   const navigationBurger = document
@@ -56,7 +52,29 @@ const myApp = (function () {
       fetchData();
     });
   };
+  const getCoords =()=>{
+    const inputs = document.querySelectorAll('.earth__input');
+   
+    inputs.forEach(input =>{
+      input.addEventListener('change',(e)=>{
+        if(e.target.name =='Latitude') {
+          initialLatitude = e.target.value
+          console.log(initialLatitude)
+        } 
+        else if(e.target.name =='Longitude'){
+          initialLongitude = e.target.value
+          console.log(initialLongitude)
+        }
+      })
+    })
 
+  }
+  const submitCoords = ()=>{
+    const button = document.getElementById('earth__button')
+    button.addEventListener('click',()=>{
+      fetchData()
+    })
+  }
    const fetchData=()=>{
     const EpicApi = fetch(
       "https://api.nasa.gov/insight_weather/?api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT&feedtype=json&ver=1.0",{sol: 0, total_photos: 6, cameras: [ "CHEMCAM", "FHAZ", "MARDI", "RHAZ"]}
@@ -67,11 +85,15 @@ const myApp = (function () {
     const MarsPhoto = fetch(
       `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT`
     );
+    const EarthApi = fetch(`
+    https://api.nasa.gov/planetary/earth/assets?lon=${initialLongitude}&lat=${initialLatitude}&date=2018-01-01&&dim=0.5&api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT
+    `)
     try {
-      Promise.all([EpicApi, ApodApi,MarsPhoto]).then((files) => {
+      Promise.all([EpicApi, ApodApi,MarsPhoto,EarthApi]).then((files) => {
         apod(files[1].json());
         insight(files[0].json());
         marsPhoto(files[2].json())
+        earth(files[3].json())
       });
     } catch (error) {
       console.error(error);
@@ -82,6 +104,8 @@ const myApp = (function () {
     fetchData();
     getDate();
     apodButton();
+    submitCoords()
+    getCoords()
     smoothScroll.init({
       speed: 1000,
       easing: "easeInOutCubic",

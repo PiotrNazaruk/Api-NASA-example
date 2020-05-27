@@ -1,0 +1,77 @@
+.earth{
+  height: 130vh;
+  width: 100%;
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 7rem;
+  flex-direction: column;
+  @include desktop{
+    flex-direction: row;
+    height: 80vh;
+  }
+  &__content{
+    width: 100%;
+    height: 67%;
+    position: relative;
+    &::before{
+      content: '';
+      left: -6%;
+      height: 90%;
+      width: .5rem;
+      background-color: $main-red;
+      top: 0;
+      position: absolute;
+      @include desktop{
+        height: 100%;
+        width: 2rem;
+        left: -14%;
+      }
+    }
+    @include desktop{
+      width: 45%;
+    height: 90%;
+    }
+  }
+  &__image{
+    width: 100%;
+    height: 30%;
+    @include desktop{
+      width: 45%;
+    height: 90%;
+    }
+  }
+}
+.earth__content-text{
+  height: 30%;
+  p{
+    padding-top: 2rem;
+  }
+}
+.earth__content-form{
+  height: 65%;
+  display: flex;
+  align-items: center;
+  form{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    label{
+      font-size: 2rem;
+    }
+  }
+}
+.field{
+  position: relative;
+  input{
+    position: absolute;
+    left: 35%;
+    @include desktop{
+      left: 40%;
+    }
+  }
+}

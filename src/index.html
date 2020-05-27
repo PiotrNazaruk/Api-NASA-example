@@ -74,8 +74,43 @@
     </div>
     <div id="insight__data" class="insight__data"></div>
   </section>
- 
-  
-  <section id="section"></section>
+ <section class="earth">
+   <div class="earth__content">
+     <div class="earth__content-text">
+      <h2>Landsat imagery</h2>
+      <p>Landsat imagery is provided to the public as a joint project between NASA and USGS.</p>
+      <p>The value is derived from consumer use of the data. The objective of this endpoint is to give you an easy to use taste of what Landsat imagery data can provide. </p>
+     </div>
+     <div class="earth__content-form">
+       <form action="">
+        <div class="field" tabindex="1">
+          <label for="Latitude">
+            Latitude
+          </label>
+          <input class="earth__input" name="Latitude" type="number" placeholder="e.g. 52.237049" required>
+        </div>
+        <div class="field" tabindex="2">
+          <label for=" Longitude">
+            Longitude
+          </label>
+          <input class="earth__input" name="Longitude" type="number" placeholder="e.g. 21.017532" required>
+        </div>
+        <div class="back">
+          <div  id="earth__button" class="button_base b10_tveffect">
+
+              <div>GET PICTURE</div>
+              <div>
+                  <div>Nasa</div>
+                  <div>Secret</div>
+                  <div>Picture</div>
+              </div>
+          </div>
+      </div>
+       </form>
+     </div>
+    
+   </div>
+   <div class="earth__image"></div>
+ </section>
 </body>
 </html>

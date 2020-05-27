@@ -52,6 +52,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .b10_tveffect div:nth-child(1) {
@@ -269,6 +270,41 @@ input[type="date"] {
 }
 
 input[type="date"], focus {
+  color: $main-red;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+/* Removes the clear button from date inputs */
+input[type="number"]::-webkit-clear-button {
+  display: none;
+}
+
+/* Removes the spin button */
+input[type="number"]::-webkit-inner-spin-button { 
+  display: none;
+}
+
+/* Always display the drop down caret */
+input[type="number"]::-webkit-calendar-picker-indicator {
+  color: $main-red;
+}
+
+/* A few custom styles for date inputs */
+input[type="number"] {
+  appearance: none;
+  -webkit-appearance: none;
+  color: #95a5a6;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  border:1px solid #ecf0f1;
+  background:#ecf0f1;
+  padding:5px;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+input[type="number"], focus {
   color: $main-red;
   box-shadow: none;
   -webkit-box-shadow: none;

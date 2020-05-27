@@ -1,28 +1,62 @@
 .insight{
-  height: 180vh;
+  height: 400vh;
   width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  @include desktop{
+    height: 180vh;
+    
+  }
   &__headline{
-    height: 20%;
+    height: 10%;
     width: 100%;
+    position: relative;
+    @include desktop{
+      height: 15%;
+      margin-top: 5rem;
+    }
+   
+    &::before{
+      content: '';
+      left: -6%;
+      height: 100%;
+      width: 1rem;
+      background-color: $main-red;
+      top: 0;
+      position: absolute;
+      @include desktop{
+        height: 80%;
+        width: 2rem;
+      }
+    }
+    p{
+      margin-top: 4rem;
+      width: 100%;
+      @include desktop{
+      width: 50%;
+      }
+    }
 
   }
   &__data{
-    height: 70%;
+    height: 86%;
     width: 100%;
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: repeat(12 , 1fr);
     grid-template-rows: repeat(12, 1fr);
+    @include desktop{
+      height: 80%;
+      grid-gap: 2rem;
+    }
   
   }
 }
 .insight__content{
-  height: 40%;
+  height: 20%;
   background: whitesmoke;
   display: flex;
   flex-direction: row;
@@ -31,6 +65,9 @@
   justify-content: space-between;
   display: flex;
   align-items: center;
+  @include desktop{
+    height: 40%;
+  }
 
   span{
     padding-left: 2rem;
@@ -52,39 +89,74 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
   h3{
     text-align: center;
     display: block;
     padding: 1rem;
   }
   &:nth-child(1){
-    grid-column: span 6;
+    grid-column: span 12;
+    grid-row: span 2;
+    @include desktop{
+      grid-column: span 6;
     grid-row: span 6;
+    }
     .insight__content{
       height: 20%;
+      flex-direction: row;
+      @include desktop{
+        height: 20%;
+        flex-direction: row;
+      }
+     
     }
     .insight__picture{
-      height: 80%;
+      height: 70%;
+      @include desktop{
+        height: 80%;
+      }
     }
   }
   &:nth-child(2){
-    grid-column: span 3;
-    grid-row: span 4;
+    grid-column: span 12;
+    grid-row: span 2;
+    @include desktop{
+      grid-column: span 3;
+      grid-row: span 4;
+    }
+    
   }
   &:nth-child(3){
-    grid-column: span 3;
-    grid-row: span 4;
+    grid-column: span 12;
+    grid-row: span 2;
+    @include desktop{
+      grid-column: span 3;
+      grid-row: span 4;
+    }
   }
   &:nth-child(4){
-    grid-column: span 3;
-    grid-row: span 3;
+    grid-column: span 12;
+    grid-row: span 2;
+    @include desktop{
+      grid-column: span 3;
+      grid-row: span 3;
+    }
   }
   &:nth-child(5){
-    grid-column: span 3;
-    grid-row: span 3;
+    grid-column: span 12;
+    grid-row: span 1;
+    @include desktop{
+      grid-column: span 3;
+      grid-row: span 3;
+    }
   } &:nth-child(6){
-    grid-column: span 6;
-    grid-row: span 7;
+    grid-column: span 12;
+    grid-row: span 2;
+    @include desktop{
+      grid-column: span 6;
+      grid-row: span 7;
+    }
     .insight__content{
       height: 20%;
     }
@@ -93,8 +165,18 @@
     }
   }
   &:nth-child(7){
-    grid-column: span 6;
-    grid-row: span 6;
+    grid-column: span 12;
+    grid-row: span 2;
+    .insight__content{
+      height: 20%;
+    }
+    .insight__picture{
+      height: 80%;
+    }
+    @include desktop{
+      grid-column: span 6;
+      grid-row: span 6;
+    }
   }
 
 
