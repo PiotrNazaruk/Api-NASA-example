@@ -5,12 +5,13 @@ import smoothScroll from "./smooth";
 import insight from './insight';
 import marsPhoto from './marsPhoto';
 import earth from './earth';
+import asteroid from './asteroid';
 
 const myApp = (function () {
   let initialPictureDate = "2020-04-25";
   let initialLatitude = 37.234894;
   let initialLongitude = -115.81082;
-
+  let initialAsteroidDay =new Date().toISOString().slice(0, 10);
 
   const navigation = document.querySelector(".navigation");
   const navigationItemFirst = document.querySelector(".navigation-burger__item--first");
@@ -88,12 +89,17 @@ const myApp = (function () {
     const EarthApi = fetch(`
     https://api.nasa.gov/planetary/earth/assets?lon=${initialLongitude}&lat=${initialLatitude}&date=2018-01-01&&dim=0.5&api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT
     `)
+    const Asteroid = fetch(
+     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${initialAsteroidDay}&end_date=${initialAsteroidDay}&api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT`
+    )
     try {
-      Promise.all([EpicApi, ApodApi,MarsPhoto,EarthApi]).then((files) => {
+      Promise.all([EpicApi, ApodApi,MarsPhoto,EarthApi,Asteroid]).then((files) => {
         apod(files[1].json());
         insight(files[0].json());
         marsPhoto(files[2].json())
         earth(files[3].json())
+        asteroid(files[4].json())
+
       });
     } catch (error) {
       console.error(error);

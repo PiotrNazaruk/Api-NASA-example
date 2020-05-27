@@ -1,0 +1,16 @@
+.asteroids{
+  height: 80vh;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__content{
+    width: 45%;
+    height: 90%;
+  }
+  &__image{
+    width: 45%;
+    height: 90%;
+  }
+}
