@@ -2,6 +2,9 @@ import "../styles/index.scss";
 console.log("webpack starterkit");
 import apod from "./apod";
 import smoothScroll from "./smooth";
+import insight from './insight';
+import marsPhoto from './marsPhoto';
+
 const myApp = (function () {
   let initialPictureDate = "2020-04-25";
   const navigation = document.querySelector(".navigation");
@@ -54,16 +57,21 @@ const myApp = (function () {
     });
   };
 
-  const fetchData = () => {
+   const fetchData=()=>{
     const EpicApi = fetch(
-      "https://api.nasa.gov/EPIC/api/natural/date/2019-05-30?api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT"
+      "https://api.nasa.gov/insight_weather/?api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT&feedtype=json&ver=1.0",{sol: 0, total_photos: 6, cameras: [ "CHEMCAM", "FHAZ", "MARDI", "RHAZ"]}
     );
     const ApodApi = fetch(
       `https://api.nasa.gov/planetary/apod?date=${initialPictureDate}&api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT`
     );
+    const MarsPhoto = fetch(
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT`
+    );
     try {
-      Promise.all([EpicApi, ApodApi]).then((files) => {
+      Promise.all([EpicApi, ApodApi,MarsPhoto]).then((files) => {
         apod(files[1].json());
+        insight(files[0].json());
+        marsPhoto(files[2].json())
       });
     } catch (error) {
       console.error(error);
