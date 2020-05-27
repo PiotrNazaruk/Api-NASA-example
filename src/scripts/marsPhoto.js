@@ -7,7 +7,6 @@ const marsPhoto= (prom)=>{
         item.style.backgroundImage = `url(${data.photos[index].img_src})`
   
       })
-      // apoPictureDiv.style.backgroundImage=`url(${data.url})`
    
   })
 

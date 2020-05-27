@@ -98,7 +98,7 @@ const myApp = (function () {
         insight(files[0].json());
         marsPhoto(files[2].json())
         earth(files[3].json())
-        asteroid(files[4].json())
+        asteroid(files[4].json(),initialAsteroidDay)
 
       });
     } catch (error) {
