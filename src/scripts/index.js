@@ -8,75 +8,88 @@ import earth from './earth';
 import asteroid from './asteroid';
 
 const myApp = (function () {
-  let initialPictureDate = "2020-04-25";
-  let initialLatitude = 37.234894;
-  let initialLongitude = -115.81082;
-  let initialAsteroidDay =new Date().toISOString().slice(0, 10);
 
-  const navigation = document.querySelector(".navigation");
-  const navigationItemFirst = document.querySelector(".navigation-burger__item--first");
-  const navigationItemSecond = document.querySelector(".navigation-burger__item--second");
-  const navigationItemThird = document.querySelector(".navigation-burger__item--third");
-  const navigationItems = document.querySelectorAll(".navigation-burger__item");
-  const navigationLinks = document.querySelectorAll(".navigation__link");
+  const data ={
+    initialPictureDate: "2020-04-25",
+    initialLatitude: 37.234894,
+    initialLongitude: -115.81082,
+    initialAsteroidDay: new Date().toISOString().slice(0, 10)
+  }
+  const domElements = {
+    navigation: document.querySelector(".navigation"),
+    navigationItemFirst: document.querySelector(".navigation-burger__item--first"),
+    navigationItemSecond: document.querySelector(".navigation-burger__item--second"),
+    navigationItemThird: document.querySelector(".navigation-burger__item--third"),
+    navigationItems: document.querySelectorAll(".navigation-burger__item"),
+    navigationLinks: document.querySelectorAll(".navigation__link"),
+    buttons: document.querySelectorAll('.button_base'),
+    inputs: document.querySelectorAll('#input')
+  }
 
   const translateBurger = () => {
+    const {navigation,navigationItemFirst,navigationItemSecond,navigationItemThird} = domElements
     navigation.classList.toggle("fade");
     navigation.classList.remove("hide");
     navigationItemSecond.classList.toggle("display-none");
     navigationItemFirst.classList.toggle("translateAdd");
     navigationItemThird.classList.toggle("translateMinus");
+    
   };
 
   const navigationBurger = document
     .querySelector(".navigation-burger")
     .addEventListener("click", translateBurger);
-  navigationLinks.forEach((item) => {
-    item.addEventListener("click", function () {
-      navigation.classList.add("hide");
-      navigation.classList.toggle("fade");
-      navigationItemSecond.classList.toggle("display-none");
-      navigationItemFirst.classList.toggle("translateAdd");
-      navigationItemThird.classList.toggle("translateMinus");
-    });
+        domElements.navigationLinks.forEach((item) => {
+          item.addEventListener("click", function () {
+            navigation.classList.add("hide");
+            navigation.classList.toggle("fade");
+            navigationItemSecond.classList.toggle("display-none");
+            navigationItemFirst.classList.toggle("translateAdd");
+            navigationItemThird.classList.toggle("translateMinus");
+          });
   });
-  const getDate = () => {
-    const input = document.getElementById("input");
-    input.addEventListener("change", (e) => {
-      initialPictureDate = e.target.value;
-      console.log(initialPictureDate);
-    });
-  };
-  const apodButton = () => {
-    const button = document.getElementById("button");
-    button.addEventListener("click", () => {
-      fetchData();
-    });
-  };
-  const getCoords =()=>{
-    const inputs = document.querySelectorAll('.earth__input');
-   
+
+ 
+  const getDataFromInputs =()=>{
+    const inputs = document.querySelectorAll('#input');
+    console.log(inputs)
     inputs.forEach(input =>{
-      input.addEventListener('change',(e)=>{
-        if(e.target.name =='Latitude') {
-          initialLatitude = e.target.value
-          console.log(initialLatitude)
-        } 
-        else if(e.target.name =='Longitude'){
-          initialLongitude = e.target.value
-          console.log(initialLongitude)
-        }
+  
+      if(input.type=='date'){
+        input.addEventListener("change", (e) => {
+          data.initialPictureDate = e.target.value;
+          console.log(data.initialPictureDate);
+        });
+        
+      }
+      else if(input.type =='number'){
+        input.addEventListener('change',(e)=>{
+          if(e.target.name =='Latitude') {
+            data.initialLatitude = e.target.value
+            console.log(data.initialLatitude)
+          } 
+          else if(e.target.name =='Longitude'){
+            data.initialLongitude = e.target.value
+            console.log(data.initialLongitude)
+          }
+        })
+      }
+    })
+
+  }
+ 
+
+  const renderData = (buttons)=>{
+    let btns = buttons;
+    btns.forEach(button=>{
+      button.addEventListener('click',()=>{
+        fetchData()
       })
     })
 
   }
-  const submitCoords = ()=>{
-    const button = document.getElementById('earth__button')
-    button.addEventListener('click',()=>{
-      fetchData()
-    })
-  }
    const fetchData=()=>{
+    const {initialPictureDate,initialLongitude,initialLatitude,initialAsteroidDay}= data;
     const EpicApi = fetch(
       "https://api.nasa.gov/insight_weather/?api_key=PCu6RzkaGWhA8vuuf4Onq1rDgRSBhfvlQPeWofgT&feedtype=json&ver=1.0",{sol: 0, total_photos: 6, cameras: [ "CHEMCAM", "FHAZ", "MARDI", "RHAZ"]}
     );
@@ -107,11 +120,10 @@ const myApp = (function () {
   };
 
   const init = () => {
+    const {inputs,buttons} = domElements;
     fetchData();
-    getDate();
-    apodButton();
-    submitCoords()
-    getCoords()
+    getDataFromInputs(inputs)
+    renderData(buttons)
     smoothScroll.init({
       speed: 1000,
       easing: "easeInOutCubic",
