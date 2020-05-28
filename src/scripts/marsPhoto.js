@@ -5,10 +5,7 @@ const marsPhoto= (prom)=>{
       let insightItems = document.querySelectorAll('.insight__picture')
       insightItems.forEach((item,index)=>{
         item.style.backgroundImage = `url(${data.photos[index].img_src})`
-  
       })
-   
   })
-
 }
 export default marsPhoto;

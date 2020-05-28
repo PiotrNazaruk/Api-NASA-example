@@ -1,138 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;900&display=swap" rel="stylesheet">
-  <title>api nasa examples</title>
-  <meta name="description" content="
-  practical application of nasa api in the projection">
-  <link rel="apple-touch-icon" sizes="180x180" href="../public/assets/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../public/assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../public/assets/favicon-16x16.png">
-<link rel="manifest" href="../public/assets/site.webmanifest">
-</head>
-<body>
-  <div class="navigation-burger">
-    <div
-      class="navigation-burger__item navigation-burger__item--first"
-    ></div>
-    <div
-      class="navigation-burger__item navigation-burger__item--second"
-    ></div>
-    <div
-      class="navigation-burger__item navigation-burger__item--third"
-    ></div>
-  </div>
-  <nav class="navigation">
-    <div class="navigation__container">
-      <div class="navigation-list__container">
-        <ul class="navigation__list">
-          <a class="navigation__link navigation-animation"  data-scroll href="#apod"
-            ><li>APOD</li></a
-          >
-          <a class="navigation__link navigation-animation" data-scroll href="#insight"
-            ><li>MARS WEATHER</li></a
-          >
-          <a class="navigation__link navigation-animation" data-scroll href="#earth">
-            <li>LANDSAT IMAGERY</li></a
-          >
-          <a class="navigation__link navigation-animation" data-scroll href="#asteroids">
-            <li>NEOWS</li></a
-          >
-        </ul>
-      </div>
-      </div>
-    
-  </nav>
-  <header class="header">
-    <div class="header__content">
-      <span class="api">API</span>
-      <h1>NASA</h1>
-      <span class="examples">EXAMPLES</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>api nasa examples</title>
+    <meta
+      name="description"
+      content="
+  practical application of nasa api in the projection"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../public/assets/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../public/assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../public/assets/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../public/assets/site.webmanifest" />
+  </head>
+  <body>
+    <div class="navigation-burger">
+      <div class="navigation-burger__item navigation-burger__item--first"></div>
+      <div
+        class="navigation-burger__item navigation-burger__item--second"
+      ></div>
+      <div class="navigation-burger__item navigation-burger__item--third"></div>
     </div>
-    <div class="header__red-background"></div>
-    <div class="header__red-background header__red-background--second"></div>
-
-  </header>
-  <section id="apod" class="apod">
-    <div id="apod__image" class="apod__image"></div>
-    <div class="apod__content">
-      <h2>Astronomy Picture of the Day</h2>
-      <p>Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</p>
-      <input class="apod__date-input" id="input"  type="date">
-      <div class="back">
-        <div id="button" class="apod__button button_base b10_tveffect">
+    <nav class="navigation">
+      <div class="navigation__container">
+        <div class="navigation-list__container">
+          <ul class="navigation__list">
+            <a
+              class="navigation__link navigation-animation"
+              data-scroll
+              href="#apod"
+              ><li>APOD</li></a
+            >
+            <a
+              class="navigation__link navigation-animation"
+              data-scroll
+              href="#insight"
+              ><li>MARS WEATHER</li></a
+            >
+            <a
+              class="navigation__link navigation-animation"
+              data-scroll
+              href="#earth"
+            >
+              <li>LANDSAT IMAGERY</li></a
+            >
+            <a
+              class="navigation__link navigation-animation"
+              data-scroll
+              href="#asteroids"
+            >
+              <li>NEOWS</li></a
+            >
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header class="header">
+      <div class="header__content">
+        <span class="api">API</span>
+        <h1>NASA</h1>
+        <span class="examples">EXAMPLES</span>
+      </div>
+      <div class="header__red-background"></div>
+      <div class="header__red-background header__red-background--second"></div>
+    </header>
+    <section id="apod" class="apod">
+      <div id="apod__image" class="apod__image"></div>
+      <div class="apod__content">
+        <h2>Astronomy Picture of the Day</h2>
+        <p>
+          Each day a different image or photograph of our fascinating universe
+          is featured, along with a brief explanation written by a professional
+          astronomer.
+        </p>
+        <input class="apod__date-input" id="input" type="date" />
+        <div class="back">
+          <div id="button" class="apod__button button_base b10_tveffect">
             <div>CHOOSE PICTURE</div>
             <div>
-                <div>Nasa</div>
-                <div>Secret</div>
-                <div>Picture</div>
+              <div>Nasa</div>
+              <div>Secret</div>
+              <div>Picture</div>
             </div>
+          </div>
         </div>
-    </div>
-    </div>
-  </section>
-  <section id="insight" class="insight" >
-    <div class="insight__headline">
-      <h2>Latest Weather at Elysium Planitia</h2>
-      <p>Insight is taking daily weather measerements (temperature, wind, pressure) on the surface of Mars at Elysium Planitia, a flat smooth plain near Mars'equator.</p>
-    </div>
-    <div id="insight__data" class="insight__data"></div>
-  </section>
- <section id="earth" class="earth">
-   <div class="earth__content">
-     <div class="earth__content-text">
-      <h2>Landsat imagery</h2>
-      <p>Landsat imagery is provided to the public as a joint project between NASA and USGS.</p>
-      <p>The value is derived from consumer use of the data. The objective of this endpoint is to give you an easy to use taste of what Landsat imagery data can provide. </p>
-     </div>
-     <div class="earth__content-form">
-       <form action="">
-        <div class="field" tabindex="1">
-          <label for="Latitude">
-            Latitude
-          </label>
-          <input id="input" class="earth__input" name="Latitude" type="number" placeholder="e.g. 52.237049" required>
+      </div>
+    </section>
+    <section id="insight" class="insight">
+      <div class="insight__headline">
+        <h2>Latest Weather at Elysium Planitia</h2>
+        <p>
+          Insight is taking daily weather measerements (temperature, wind,
+          pressure) on the surface of Mars at Elysium Planitia, a flat smooth
+          plain near Mars'equator.
+        </p>
+      </div>
+      <div id="insight__data" class="insight__data"></div>
+    </section>
+    <section id="earth" class="earth">
+      <div class="earth__content">
+        <div class="earth__content-text">
+          <h2>Landsat imagery</h2>
+          <p>
+            Landsat imagery is provided to the public as a joint project between
+            NASA and USGS.
+          </p>
+          <p>
+            The value is derived from consumer use of the data. The objective of
+            this endpoint is to give you an easy to use taste of what Landsat
+            imagery data can provide.
+          </p>
         </div>
-        <div class="field" tabindex="2">
-          <label for=" Longitude">
-            Longitude
-          </label>
-          <input id="input" class="earth__input" name="Longitude" type="number" placeholder="e.g. 21.017532" required>
-        </div>
-        <div class="back">
-          <div  id="button" class="button_base b10_tveffect">
-
-              <div>GET PICTURE</div>
-              <div>
+        <div class="earth__content-form">
+          <form action="">
+            <div class="field" tabindex="1">
+              <label for="Latitude">
+                Latitude
+              </label>
+              <input
+                id="input"
+                class="earth__input"
+                name="Latitude"
+                type="number"
+                placeholder="e.g. 52.237049"
+                required
+              />
+            </div>
+            <div class="field" tabindex="2">
+              <label for=" Longitude">
+                Longitude
+              </label>
+              <input
+                id="input"
+                class="earth__input"
+                name="Longitude"
+                type="number"
+                placeholder="e.g. 21.017532"
+                required
+              />
+            </div>
+            <div class="back">
+              <div id="button" class="button_base b10_tveffect">
+                <div>GET PICTURE</div>
+                <div>
                   <div>Nasa</div>
                   <div>Secret</div>
                   <div>Picture</div>
+                </div>
               </div>
-          </div>
+            </div>
+          </form>
+        </div>
       </div>
-       </form>
-     </div>
-    
-   </div>
-   <div class="earth__image"></div>
- </section>
- <section id="asteroids" class="asteroids">
-   <div class="asteroids__headline">
-     <h2>Asteroids - NeoWs</h2>
-     <p>NeoWs (Near Earth Object Web Service) is a RESTful web service for near earth Asteroid information. With NeoWs a user can: search for Asteroids based on their closest approach date to Earth, lookup a specific Asteroid with its NASA JPL small body id, as well as browse the overall data-set.</p>
-   </div>
-   <div id="asteroids__content" class="asteroids__content">
-
-   </div>
- </section>
- <footer class="footer">
+      <div class="earth__image"></div>
+    </section>
+    <section id="asteroids" class="asteroids">
+      <div class="asteroids__headline">
+        <h2>Asteroids - NeoWs</h2>
+        <p>
+          NeoWs (Near Earth Object Web Service) is a RESTful web service for
+          near earth Asteroid information. With NeoWs a user can: search for
+          Asteroids based on their closest approach date to Earth, lookup a
+          specific Asteroid with its NASA JPL small body id, as well as browse
+          the overall data-set.
+        </p>
+      </div>
+      <div id="asteroids__content" class="asteroids__content"></div>
+    </section>
+    <footer class="footer">
       <div class="footer__author">
         <span>Designed and Created by Piotr Nazaruk</span>
         <span>513-650-513</span>
         <span>nazaruk89@gmail.com</span>
       </div>
- </footer>
-</body>
+    </footer>
+  </body>
 </html>
