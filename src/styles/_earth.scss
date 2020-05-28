@@ -8,6 +8,12 @@
   align-items: center;
   margin-top: 7rem;
   flex-direction: column;
+  @include small-phone{
+    height: 180vh;
+  }
+  @include phone-landscape{
+   height: 160vh;
+  }
   @include desktop{
     flex-direction: row;
     height: 80vh;
@@ -44,6 +50,11 @@
     }
   }
 }
+.earth__input{
+  @include small-phone{
+    width: 50%;
+  }
+}
 .earth__content-text{
   height: 30%;
   p{
@@ -60,6 +71,12 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    .field{
+     
+      @include small-phone{
+        padding-top: 2rem;
+      }
+    }
     label{
       font-size: 2rem;
     }
@@ -70,6 +87,9 @@
   input{
     position: absolute;
     left: 35%;
+    @include small-phone{
+      left: 40%;
+    }
     @include desktop{
       left: 40%;
     }

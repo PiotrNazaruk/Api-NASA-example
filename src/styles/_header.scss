@@ -32,6 +32,9 @@
       background-size: cover;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
+      @include small-phone{
+        font-size: 8rem;
+      }
       @include desktop{
         font-size: 25rem;
       }

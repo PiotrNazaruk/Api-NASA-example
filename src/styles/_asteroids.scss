@@ -8,6 +8,9 @@
   flex-direction: column;
   position: relative;
   margin-top: 8rem;
+  @include small-phone{
+    height: 200vh;
+  }
   @include desktop{
     height: 80vh; 
   }
@@ -35,10 +38,12 @@
       background-color: $main-red;
       top: 0;
       position: absolute;
+      display: none;
       @include desktop{
         height: 100%;
         width: 2rem;
         right: -22%;
+        display: block;
       }
     }
     p{

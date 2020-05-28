@@ -22,17 +22,17 @@
     <div class="navigation__container">
       <div class="navigation-list__container">
         <ul class="navigation__list">
-          <a class="navigation__link navigation-animation"  data-scroll href="#section"
-            ><li>HOME</li></a
+          <a class="navigation__link navigation-animation"  data-scroll href="#apod"
+            ><li>APOD</li></a
           >
-          <a class="navigation__link navigation-animation" href=""
-            ><li>O NAS</li></a
+          <a class="navigation__link navigation-animation" data-scroll href="#insight"
+            ><li>MARS WEATHER</li></a
           >
-          <a class="navigation__link navigation-animation" href="">
-            <li>OFERTA</li></a
+          <a class="navigation__link navigation-animation" data-scroll href="#earth">
+            <li>LANDSAT IMAGERY</li></a
           >
-          <a class="navigation__link navigation-animation" href="">
-            <li>KONTAKT</li></a
+          <a class="navigation__link navigation-animation" data-scroll href="#asteroids">
+            <li>NEOWS</li></a
           >
         </ul>
       </div>
@@ -49,7 +49,7 @@
     <div class="header__red-background header__red-background--second"></div>
 
   </header>
-  <section class="apod">
+  <section id="apod" class="apod">
     <div id="apod__image" class="apod__image"></div>
     <div class="apod__content">
       <h2>Astronomy Picture of the Day</h2>
@@ -67,14 +67,14 @@
     </div>
     </div>
   </section>
-  <section class="insight" >
+  <section id="insight" class="insight" >
     <div class="insight__headline">
       <h2>Latest Weather at Elysium Planitia</h2>
       <p>Insight is taking daily weather measerements (temperature, wind, pressure) on the surface of Mars at Elysium Planitia, a flat smooth plain near Mars'equator.</p>
     </div>
     <div id="insight__data" class="insight__data"></div>
   </section>
- <section class="earth">
+ <section id="earth" class="earth">
    <div class="earth__content">
      <div class="earth__content-text">
       <h2>Landsat imagery</h2>
@@ -112,7 +112,7 @@
    </div>
    <div class="earth__image"></div>
  </section>
- <section class="asteroids">
+ <section id="asteroids" class="asteroids">
    <div class="asteroids__headline">
      <h2>Asteroids - NeoWs</h2>
      <p>NeoWs (Near Earth Object Web Service) is a RESTful web service for near earth Asteroid information. With NeoWs a user can: search for Asteroids based on their closest approach date to Earth, lookup a specific Asteroid with its NASA JPL small body id, as well as browse the overall data-set.</p>
