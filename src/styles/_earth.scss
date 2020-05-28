@@ -12,7 +12,10 @@
     height: 180vh;
   }
   @include phone-landscape{
-   height: 160vh;
+   height: 190vh;
+  }
+  @include tablet{
+    height: 100vh;
   }
   @include desktop{
     flex-direction: row;

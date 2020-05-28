@@ -11,6 +11,12 @@
   @include small-phone{
     height: 200vh;
   }
+  @include phone-landscape{
+    height: 300vh;
+  }
+  @include tablet{
+    height: 150vh;
+  }
   @include desktop{
     height: 80vh; 
   }

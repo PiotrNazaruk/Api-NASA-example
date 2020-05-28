@@ -17,6 +17,9 @@
     height: 10%;
     width: 100%;
     position: relative;
+    @include tablet{
+      height: 5%;
+    }
     @include desktop{
       height: 15%;
       margin-top: 5rem;
@@ -56,6 +59,9 @@
     grid-gap: 2rem;
     grid-template-columns: repeat(12 , 1fr);
     grid-template-rows: repeat(12, 1fr);
+    @include tablet{
+      height: 93%;
+    }
     @include desktop{
       height: 80%;
       grid-gap: 2rem;
